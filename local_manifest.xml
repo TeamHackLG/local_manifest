@@ -7,7 +7,7 @@
     <project path="hardware/qcom/media-legacy" name="TeamHackLG/android_hardware_qcom_media-legacy" revision="cm-10.1" />
     <project path="device/lge/msm7x27a-common" name="TeamHackLG/android_device_lge_msm7x27a-common" revision="cm-10.1" />
     <project path="device/lge/e610" name="TeamHackLG/android_device_lge_e610" revision="cm-10.1" />
-    <project path="device/lge/p700" name="TeamHackLG/android_device_lge_p700" revision="cm-10.1" />
+    <project path="device/lge/p700" name="TeamHackLG/android_device_lge_p700" revision="master" />
     <project path="kernel/lge/msm7x27a-common" name="TeamHackLG/lge-kernel-lproj" revision="android-msm-3.4-jb42" />
 </manifest>
 
