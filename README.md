@@ -6,7 +6,7 @@ Project M4|L5 / Project U0|L7 / Project V1|L1II / Project Vee3|L3II
 
 Automatic Way:
 
-script to download manifests, sync repo  and build:
+script to download manifests, sync repo and build:
 
     curl --create-dirs -L -o build.sh -O -L https://raw.github.com/Caio99BR/android_.repo_local_manifests/cm-11.0/build.sh
 
@@ -24,33 +24,21 @@ To initialize CyanogenMod 11.0 Repo:
 
 ---
 
-To initialize Common Manifest for all devices:
+To initialize MSM7x27a Manifest for all devices:
 
-    curl --create-dirs -L -o .repo/local_manifests/common_manifest.xml -O -L https://raw.github.com/Caio99BR/android_.repo_local_manifests/cm-11.0/common_manifest.xml
-
----
-
-To initialize Manifest for L5:
-
-    curl --create-dirs -L -o .repo/local_manifests/m4_manifest.xml -O -L https://raw.github.com/Caio99BR/android_.repo_local_manifests/cm-11.0/m4_manifest.xml
+    curl --create-dirs -L -o .repo/local_manifests/msm7x27a_manifest.xml -O -L https://raw.github.com/Caio99BR/android_.repo_local_manifests/cm-11.0/msm7x27a_manifest.xml
 
 ---
 
-To initialize Manifest for L7:
+To initialize Manifest for L5/L7:
 
-    curl --create-dirs -L -o .repo/local_manifests/u0_manifest.xml -O -L https://raw.github.com/Caio99BR/android_.repo_local_manifests/cm-11.0/u0_manifest.xml
-
----
-
-To initialize Manifest for L1II:
-
-    curl --create-dirs -L -o .repo/local_manifests/v1_manifest.xml -O -L https://raw.github.com/Caio99BR/android_.repo_local_manifests/cm-11.0/v1_manifest.xml
+    curl --create-dirs -L -o .repo/local_manifests/gen1_manifest.xml -O -L https://raw.github.com/Caio99BR/android_.repo_local_manifests/cm-11.0/gen1_manifest.xml
 
 ---
 
-To initialize Manifest for L3II:
+To initialize Manifest for L1II/L3II:
 
-    curl --create-dirs -L -o .repo/local_manifests/vee3_manifest.xml -O -L https://raw.github.com/Caio99BR/android_.repo_local_manifests/cm-11.0/vee3_manifest.xml
+    curl --create-dirs -L -o .repo/local_manifests/gen2_manifest.xml -O -L https://raw.github.com/Caio99BR/android_.repo_local_manifests/cm-11.0/gen2_manifest.xml
 
 ---
 
