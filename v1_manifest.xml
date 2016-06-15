@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+	<!-- Remote names -->
+	<remote name="c9" fetch="https://github.com/Caio99BR/" />
+	<!-- Project V1 -->
+	<!-- project path="device/lge/v1" name="android_device_lge_v1" revision="cm-11.0" remote="c9" /-->
+</manifest>
