@@ -5,5 +5,5 @@
 	<!-- Project Vee3 -->
 	<project path="device/lge/vee3" name="android_device_lge_vee3" revision="cm-11.0" remote="c9" />
 	<!-- Project V1 -->
-	<!-- project path="device/lge/v1" name="android_device_lge_v1" revision="cm-11.0" remote="c9" /-->
+	<project path="device/lge/v1" name="android_device_lge_v1" revision="cm-11.0" remote="c9" />
 </manifest>

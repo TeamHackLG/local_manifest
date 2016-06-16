@@ -313,8 +313,7 @@ do
 		sh device/lge/vee3/patches/apply.sh
 		if [[ "$_device_build" == "v1" || "$_device_build" == "gen2" ]]
 		then
-			#_if_fail_break "brunch v1"
-			echo "$(tput setaf 1)---$(tput sgr0) WIP, sorry!"
+			_if_fail_break "brunch v1"
 		fi
 		if [[ "$_device_build" == "vee3" || "$_device_build" == "gen2" ]]
 		then
