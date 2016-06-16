@@ -226,12 +226,12 @@ do
 	rm -rf .repo/local_manifests/
 	echo "$(tput setaf 1)---$(tput sgr0)"
 	echo "$(tput setaf 1)---$(tput sgr0) Downloading ${_device}_manifest.xml of branch $_custom_android"
-	_if_fail_break "curl -# --create-dirs -L -o .repo/local_manifests/${_device}_manifest.xml -O -L https://raw.github.com/${_github_place}/android_.repo_local_manifests/${_custom_android}/${_device}_manifest.xml"
+	_if_fail_break "curl -# --create-dirs -L -o .repo/local_manifests/${_device}_manifest.xml -O -L https://raw.github.com/${_github_place}/local_manifest/${_custom_android}/${_device}_manifest.xml"
 
 	# Common device manifest download
 	echo "$(tput setaf 1)---$(tput sgr0)"
 	echo "$(tput setaf 1)---$(tput sgr0) Downloading msm7x27a_manifest.xml of branch $_custom_android"
-	_if_fail_break "curl -# --create-dirs -L -o .repo/local_manifests/msm7x27a_manifest.xml -O -L https://raw.github.com/${_github_place}/android_.repo_local_manifests/${_custom_android}/msm7x27a_manifest.xml"
+	_if_fail_break "curl -# --create-dirs -L -o .repo/local_manifests/msm7x27a_manifest.xml -O -L https://raw.github.com/${_github_place}/local_manifest/${_custom_android}/msm7x27a_manifest.xml"
 
 	# Real 'repo sync'
 	echo "$(tput setaf 1)---$(tput sgr0)"
