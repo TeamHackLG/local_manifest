@@ -5,7 +5,7 @@ _echo_android="KitKat"
 _custom_android="cm-11.0"
 _echo_custom_android="CyanogenMod"
 _echo_custom_android_version="11"
-_github_place="Caio99BR"
+_github_place="TeamHackLG"
 # Make loop for usage of 'break' to recursive exit
 while true
 do
