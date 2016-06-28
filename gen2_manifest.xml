@@ -2,8 +2,11 @@
 <manifest>
 	<!-- Remote names -->
 	<remote name="thlg" fetch="https://github.com/TeamHackLG/" />
+	<remote name="tv" fetch="https://github.com/TeamVee/" />
+	<!-- TWRP -->
+	<project path="bootable/recovery-omni" name="android_bootable_recovery" revision="cm-12.1" remote="tv" />
 	<!-- Project Vee3 -->
-	<project path="device/lge/vee3" name="android_device_lge_vee3" revision="cm-11.0" remote="thlg" />
+	<project path="device/lge/vee3" name="android_device_lge_vee3" revision="cm-12.1" remote="thlg" />
 	<!-- Project V1 -->
-	<project path="device/lge/v1" name="android_device_lge_v1" revision="cm-11.0" remote="thlg" />
+	<project path="device/lge/v1" name="android_device_lge_v1" revision="cm-12.1" remote="thlg" />
 </manifest>

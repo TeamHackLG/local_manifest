@@ -1,9 +1,9 @@
 #!/bin/bash
 # Generic Variables
-_android="4.4.4"
-_android_version="KitKat"
-_custom_android="cm-11.0"
-_custom_android_version="CyanogenMod11.0"
+_android="5.1.1"
+_android_version="LolliPop"
+_custom_android="cm-12.1"
+_custom_android_version="CyanogenMod12.1"
 _github_custom_android_place="CyanogenMod"
 _github_device_place="TeamHackLG"
 # Make loop for usage of 'break' to recursive exit
@@ -177,6 +177,11 @@ do
 	echo "  | Initializing the environment"
 	_if_fail_break "source build/envsetup.sh"
 
+	# Patchs
+	echo "  |"
+	echo "  | Applying the patches"
+	sh device/lge/msm7x27a-common/patches/apply.sh
+
 	# Another device choice
 	echo "  |"
 	echo "  | For what device you want to build:"
@@ -213,10 +218,6 @@ do
 				*) echo "${x} | Exiting from script!"; _unset_and_stop;;
 			esac
 		fi
-		# Patchs
-		echo "  |"
-		echo "  | Applying the patches"
-		sh device/lge/vee3/patches/apply.sh
 	fi
 	echo "  | Building to ${_device_echo}"
 	# Builing Android
