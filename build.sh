@@ -1,9 +1,9 @@
 #!/bin/bash
 # Generic Variables
-_android="5.1.1"
-_android_version="LolliPop"
-_custom_android="cm-12.1"
-_custom_android_version="CyanogenMod12.1"
+_android="6.0.1"
+_android_version="MarshMallow"
+_custom_android="cm-13.0"
+_custom_android_version="CyanogenMod13.0"
 _github_custom_android_place="CyanogenMod"
 _github_device_place="TeamHackLG"
 # Make loop for usage of 'break' to recursive exit

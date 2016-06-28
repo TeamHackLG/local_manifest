@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
 	<!-- Remote names -->
+	<remote name="cm" fetch="https://github.com/CyanogenMod/" />
+	<remote name="omni" fetch="https://github.com/omnirom/" />
 	<remote name="thlg" fetch="https://github.com/TeamHackLG/" />
-	<remote name="tv" fetch="https://github.com/TeamVee/" />
+	<!-- Bugged Applications on LDPI -->
+	<remove-project name="CyanogenMod/android_packages_apps_Screencast" />
+	<remove-project name="CyanogenMod/android_packages_apps_Eleven" />
 	<!-- TWRP -->
-	<project path="bootable/recovery-omni" name="android_bootable_recovery" revision="cm-12.1" remote="tv" />
+	<project path="bootable/recovery-omni" name="android_bootable_recovery" revision="android-6.0" remote="omni" />
+	<project path="external/busybox" name="android_external_busybox" revision="cm-13.0" remote="cm" />
 	<!-- Project Vee3 -->
-	<project path="device/lge/vee3" name="android_device_lge_vee3" revision="cm-12.1" remote="thlg" />
+	<project path="device/lge/vee3" name="android_device_lge_vee3" revision="cm-13.0" remote="thlg" />
 	<!-- Project V1 -->
-	<project path="device/lge/v1" name="android_device_lge_v1" revision="cm-12.1" remote="thlg" />
+	<project path="device/lge/v1" name="android_device_lge_v1" revision="cm-13.0" remote="thlg" />
 </manifest>

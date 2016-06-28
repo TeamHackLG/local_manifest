@@ -1,4 +1,4 @@
-Manifest for Android LolliPop / CyanogenMod 12.1
+Manifest for Android MarshMallow / CyanogenMod 13.0
 ====================================
 Project M4|L5 / Project U0|L7 / Project V1|L1II / Project Vee3|L3II
 
@@ -8,7 +8,7 @@ Automatic Way:
 
 script to download manifests, sync repo and build:
 
-    curl --create-dirs -L -o build.sh -O -L https://raw.github.com/TeamHackLG/local_manifest/cm-12.1/build.sh
+    curl --create-dirs -L -o build.sh -O -L https://raw.github.com/TeamHackLG/local_manifest/cm-13.0/build.sh
 
 To use:
 
@@ -18,27 +18,27 @@ To use:
 
 Manual Way:
 
-To initialize CyanogenMod 12.1 Repo:
+To initialize CyanogenMod 13.0 Repo:
 
-    repo init -u git://github.com/CyanogenMod/android.git -b cm-12.1 -g all,-notdefault,-darwin
+    repo init -u git://github.com/CyanogenMod/android.git -b cm-13.0 -g all,-notdefault,-darwin
 
 ---
 
 To initialize MSM7x27a Manifest for all devices:
 
-    curl --create-dirs -L -o .repo/local_manifests/msm7x27a_manifest.xml -O -L https://raw.github.com/TeamHackLG/local_manifest/cm-12.1/msm7x27a_manifest.xml
+    curl --create-dirs -L -o .repo/local_manifests/msm7x27a_manifest.xml -O -L https://raw.github.com/TeamHackLG/local_manifest/cm-13.0/msm7x27a_manifest.xml
 
 ---
 
 To initialize Manifest for L5/L7:
 
-    curl --create-dirs -L -o .repo/local_manifests/gen1_manifest.xml -O -L https://raw.github.com/TeamHackLG/local_manifest/cm-12.1/gen1_manifest.xml
+    curl --create-dirs -L -o .repo/local_manifests/gen1_manifest.xml -O -L https://raw.github.com/TeamHackLG/local_manifest/cm-13.0/gen1_manifest.xml
 
 ---
 
 To initialize Manifest for L1II/L3II:
 
-    curl --create-dirs -L -o .repo/local_manifests/gen2_manifest.xml -O -L https://raw.github.com/TeamHackLG/local_manifest/cm-12.1/gen2_manifest.xml
+    curl --create-dirs -L -o .repo/local_manifests/gen2_manifest.xml -O -L https://raw.github.com/TeamHackLG/local_manifest/cm-13.0/gen2_manifest.xml
 
 ---
 

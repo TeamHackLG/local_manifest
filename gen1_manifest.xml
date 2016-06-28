@@ -2,8 +2,11 @@
 <manifest>
 	<!-- Remote names -->
 	<remote name="thlg" fetch="https://github.com/TeamHackLG/" />
+	<!-- Freeing up space for the /system fit -->
+	<remove-project name="CyanogenMod/android_packages_inputmethods_LatinIME" />
+	<remove-project name="CyanogenMod/android_packages_apps_CMWallpapers" />
 	<!-- Project M4 -->
-	<project path="device/lge/e610" name="android_device_lge_e610" revision="cm-12.1" remote="thlg" />
+	<project path="device/lge/e610" name="android_device_lge_e610" revision="cm-13.0" remote="thlg" />
 	<!-- Project U0 -->
-	<project path="device/lge/p700" name="android_device_lge_p700" revision="cm-12.1" remote="thlg" />
+	<project path="device/lge/p700" name="android_device_lge_p700" revision="cm-13.0" remote="thlg" />
 </manifest>
