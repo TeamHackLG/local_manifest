@@ -180,7 +180,7 @@ do
 	# Patchs
 	echo "  |"
 	echo "  | Applying the patches"
-	sh device/lge/msm7x27a-common/patches/apply.sh
+	_if_fail_break "repopick 144710 144831 144976"
 
 	# Another device choice
 	echo "  |"

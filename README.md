@@ -60,7 +60,7 @@ Initialize the environment:
 
 Apply patchs for ALL devices:
 
-    sh device/lge/msm7x27a-common/patches/apply.sh
+    repopick 144710 144831 144976
 
 ---
 
