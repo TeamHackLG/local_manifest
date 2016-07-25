@@ -46,9 +46,15 @@ To initialize Manifest for L1II/L3II:
 
 ---
 
-Sync the repo:
+Initialize the environment:
 
-    repo sync
+    source build/envsetup.sh
+
+---
+
+Use this 'repo sync' because it use "Parallel repo sync using ionice and SCHED_BATCH", after initialize of the environment:
+
+    reposync
 
 ---
 
