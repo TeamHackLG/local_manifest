@@ -182,11 +182,6 @@ do
 	echo "  | Initializing the environment"
 	_if_fail_break "source build/envsetup.sh"
 
-	# Patchs
-	echo "  |"
-	echo "  | Applying the patches"
-	_if_fail_break "repopick 144710 144831 144976"
-
 	# Another device choice
 	echo "  |"
 	echo "  | For what device you want to build:"
