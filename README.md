@@ -24,25 +24,9 @@ To initialize CyanogenMod 13.0 Repo:
 
 ---
 
-To initialize MSM7x27a Manifest for all devices:
+To initialize Manifest for all devices:
 
-    curl --create-dirs -L -o .repo/local_manifests/msm7x27a_manifest.xml -O -L https://raw.github.com/TeamHackLG/local_manifest/cm-13.0/msm7x27a_manifest.xml
-
----
-
-To initialize Manifest for L5/L7:
-
-    curl --create-dirs -L -o .repo/local_manifests/gen1_manifest.xml -O -L https://raw.github.com/TeamHackLG/local_manifest/cm-13.0/gen1_manifest.xml
-
----
-
-To initialize Manifest for L1II/L3II:
-
-    curl --create-dirs -L -o .repo/local_manifests/gen2_manifest.xml -O -L https://raw.github.com/TeamHackLG/local_manifest/cm-13.0/gen2_manifest.xml
-
----
-
-# Never use 'L5/L7' Manifest with 'L1II/L3II' Manifest
+    curl --create-dirs -L -o .repo/local_manifests/local_manifest.xml -O -L https://raw.github.com/TeamHackLG/local_manifest/cm-13.0/local_manifest.xml
 
 ---
 
@@ -52,7 +36,7 @@ Initialize the environment:
 
 ---
 
-Use this 'repo sync' because it use "Parallel repo sync using ionice and SCHED_BATCH", after initialize of the environment:
+Use this 'repo sync' after initialize of the environment because "reposync: Parallel repo sync using ionice and SCHED_BATCH"
 
     reposync
 
