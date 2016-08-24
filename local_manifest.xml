@@ -6,6 +6,7 @@
 	<!-- Unofficial Builds -->
 	<remove-project name="CyanogenMod/android_packages_apps_CMUpdater" />
 	<remove-project name="CyanogenMod/android_packages_apps_CMWallpapers" />
+	<remove-project name="CyanogenMod/android_packages_apps_Eleven" />
 	<remove-project name="CyanogenMod/android_packages_inputmethods_LatinIME" />
 	<!-- Adreno STLPort -->
 	<project path="external/stlport" name="android_external_stlport" revision="cm-13.0" remote="cm" />
