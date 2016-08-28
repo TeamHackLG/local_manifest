@@ -42,6 +42,12 @@ Use this 'repo sync' after initialize of the environment because "reposync: Para
 
 ---
 
+cm: charger: Add support for Watch/LDPI devices
+
+    repopick 157954
+
+---
+
 Initialize the environment:
 
     source build/envsetup.sh

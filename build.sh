@@ -147,6 +147,9 @@ do
 	echo "  | Initializing the environment"
 	_if_fail_break "source build/envsetup.sh"
 
+	# cm: charger: Add support for Watch/LDPI devices
+	repopick 157954
+
 	# Another device choice
 	echo "  |"
 	echo "  | For what device you want to build:"
