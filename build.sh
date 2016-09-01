@@ -132,10 +132,16 @@ do
 	echo "  | From ${_github_device_place} (${_custom_android})"
 	_if_fail_break "curl -# --create-dirs -L -o .repo/local_manifests/local_manifest.xml -O -L https://raw.github.com/${_github_device_place}/local_manifest/${_custom_android}/local_manifest.xml"
 
-	# Initialize environment
+	# Use optimized reposync
 	echo "  |"
-	echo "  | Initializing the environment"
-	_if_fail_break "source build/envsetup.sh"
+	echo "  | Starting Sync:"
+	if [ -f "build/envsetup.sh" ]
+	then
+		_if_fail_break "source build/envsetup.sh"
+		_if_fail_break "reposync -c --force-sync -q"
+	else
+		_if_fail_break "repo sync -c --force-sync -q"
+	fi
 
 	# Real 'repo sync'
 	echo "  |"

@@ -30,27 +30,21 @@ To initialize Manifest for all devices:
 
 ---
 
-Initialize the environment:
+Sync the repo:
 
-    source build/envsetup.sh
+    repo sync -c --force-sync
 
 ---
 
-Use this 'repo sync' after initialize of the environment because "reposync: Parallel repo sync using ionice and SCHED_BATCH"
+Initialize the environment:
 
-    reposync
+    source build/envsetup.sh
 
 ---
 
 cm: charger: Add support for Watch/LDPI devices
 
     repopick 157954
-
----
-
-Initialize the environment:
-
-    source build/envsetup.sh
 
 ---
 
