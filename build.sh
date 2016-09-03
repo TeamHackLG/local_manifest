@@ -143,11 +143,6 @@ do
 		_if_fail_break "repo sync -c --force-sync -q"
 	fi
 
-	# Real 'repo sync'
-	echo "  |"
-	echo "  | Starting Sync:"
-	_if_fail_break "reposync -q --force-sync"
-
 	# Initialize environment
 	echo "  |"
 	echo "  | Initializing the environment"
