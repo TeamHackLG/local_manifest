@@ -42,12 +42,6 @@ Initialize the environment:
 
 ---
 
-cm: charger: Add support for Watch/LDPI devices
-
-    repopick 157954
-
----
-
 To build for L5:
 
     brunch e610
