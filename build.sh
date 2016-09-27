@@ -38,15 +38,38 @@ do
 		_unset_and_stop
 	fi
 
-	# Check if 'repo' is installed
-	if [ ! "$(which repo)" ]
+	# Check if 'curl' v1.18 is installed
+	if ! [ "$(wget --version | head -1 | cut -d' ' -f3)" == 1.18 ]
 	then
 		echo "  |"
-		echo "  | You will need to install 'repo'"
-		echo "  | Check in this link:"
-		echo "  | <https://source.android.com/source/downloading.html>"
-		echo "  | Exiting from script!"
-		_unset_and_stop
+		echo "  | Wget - Source Download, Build and Install"
+		echo "  | This will get some time, and errors may occur"
+		echo "  | If you get any error, select 'n'"
+		read -p "  | You really want to continue? (y/n)" -n 1 -t 10 -s wg
+		case ${wg} in
+			y | Y)
+			echo "  | Lets download latest 'curl'!"
+			_if_fail_break "curl -# --create-dirs -L -o wget.tar.gz -O -L http://ftp.gnu.org/gnu/wget/wget-1.18.tar.gz"
+
+			echo "  | Checking dependencies!"
+			if ! which tar > /dev/null
+			then
+				sudo apt-get install tar -y
+			fi
+			if ! which make > /dev/null
+			then
+				sudo apt-get install make -y
+			fi
+
+			echo "  | Lets build latest 'curl'!"
+			tar -xzf wget.tar.gz
+			rm -rf wget.tar.gz
+			cd wget
+			./configure; make || ./configure --with-ssl=openssl; make || ./configure --without-ssl; make
+			sudo make install
+			cd ..
+			rm -rf wget
+		esac
 	fi
 
 	# Check if 'curl' is installed
@@ -57,6 +80,33 @@ do
 		echo "  | Use 'sudo apt-get install curl' to install 'curl'"
 		echo "  | Exiting from script!"
 		_unset_and_stop
+	fi
+
+	# Check if 'repo' is installed
+	if [ ! "$(which repo)" ]
+	then
+		# Load this value
+		export PATH=~/bin:$PATH
+
+		# Check again for repo
+		if [ ! "$(which repo)" ]
+		then
+			echo "  |"
+			echo "  | Installing 'repo'"
+
+			# Download repo inside of bin dir
+			_if_fail_break "curl -# --create-dirs -L -o ~/bin/repo -O -L http://commondatastorage.googleapis.com/git-repo-downloads/repo"
+
+			# Make it executable
+			chmod a+x ~/bin/repo
+
+			# Let's check if repo is include
+			if [ $(cat $(ls .bash* | grep -v -e history -e logout) | grep "export PATH=~/bin:\$PATH" | wc -l) == "0" ]
+			then
+				# Add it to bashrc
+				echo "export PATH=~/bin:\$PATH" >> ~/.bashrc
+			fi
+		fi
 	fi
 
 	# Name of script
@@ -112,6 +162,48 @@ do
 		_unset_and_stop
 	fi
 
+	# Install dependencies for building Android
+	# Pulled from:
+	# <http://developer.sonymobile.com/open-devices/aosp-build-instructions/how-to-build-aosp-nougat-for-unlocked-xperia-devices/>
+	# <https://source.android.com/source/initializing.html>
+	# <https://github.com/akhilnarang/scripts>
+	echo "  |"
+	echo "  | Let's install dependencies!"
+	echo "  | Adding OpenJDK Repository!"
+	sudo apt-add-repository ppa:openjdk-r/ppa -y
+	sudo apt-get update
+
+	echo "  | Downloading dependencies!"
+	sudo apt-get -y install git-core python gnupg flex bison gperf libsdl1.2-dev libesd0-dev libwxgtk2.8-dev \
+squashfs-tools build-essential zip curl libncurses5-dev zlib1g-dev openjdk-8-jre openjdk-8-jdk pngcrush \
+schedtool libxml2 libxml2-utils xsltproc lzop libc6-dev schedtool g++-multilib lib32z1-dev lib32ncurses5-dev \
+gcc-multilib liblz4-* pngquant ncurses-dev texinfo gcc gperf patch libtool \
+automake g++ gawk subversion expat libexpat1-dev python-all-dev binutils-static bc libcloog-isl-dev \
+libcap-dev autoconf libgmp-dev build-essential gcc-multilib g++-multilib pkg-config libmpc-dev libmpfr-dev lzma* \
+liblzma* w3m android-tools-adb maven ncftp figlet
+	sudo apt-get -f -y install
+
+	# Check Java
+	_java=$(java -version 2>&1 | head -1)
+	if [ "$(echo ${_java} | grep -o 1.8)" == "1.8" ]
+	then
+		_javac=$(javac -version 2>&1 | head -1)
+		if [ ! "$(echo ${_javac} | grep -o 1.8)" == "1.8" ]
+		then
+			echo "  |"
+			echo "  | OpenJDK 8 not is default Java!"
+			echo "  | Default Java is (${_javac})!"
+			echo "  | Exiting from script!"
+			_unset_and_stop
+		fi
+	else
+		echo "  |"
+		echo "  | OpenJDK 8 not is default Java!"
+		echo "  | Default Java is (${_java})!"
+		echo "  | Exiting from script!"
+		_unset_and_stop
+	fi
+
 	# Repo Sync
 	echo "  |"
 	echo "  | Starting Sync of Android Tree Manifest"
@@ -124,7 +216,7 @@ do
 	# Initialization of Android Tree
 	echo "  |"
 	echo "  | Downloading Android Tree Manifest from ${_github_custom_android_place} (${_custom_android})"
-	_if_fail_break "repo init -u git://github.com/${_github_custom_android_place}/android.git -b ${_custom_android} -g all,-notdefault,-darwin"
+	_if_fail_break "repo init -u https://github.com/${_github_custom_android_place}/android.git -b ${_custom_android} -g all,-notdefault,-darwin"
 
 	# Device manifest download
 	echo "  |"
@@ -161,7 +253,7 @@ do
 	echo "  |"
 	if [ "${_device_build}" == "" ]
 	then
-		read -p "  | Choice | 1/2/3/ or * to exit | " -n 1 -s x
+		read -p "  | Choice | 1/2/3/4/5 or * to exit | " -n 1 -s x
 		case "${x}" in
 			1) _device_build="e610" _device_echo="L5";;
 			2) _device_build="p700" _device_echo="L7";;
@@ -171,7 +263,8 @@ do
 			*) echo "${x} | Exiting from script!"; _unset_and_stop;;
 		esac
 	fi
-	echo "  | Building to ${_device_echo}"
+	echo "${x} | Building to ${_device_echo}"
+
 	# Builing Android
 	echo "  |"
 	echo "  | Starting Android Building!"

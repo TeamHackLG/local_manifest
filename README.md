@@ -20,7 +20,7 @@ Manual Way:
 
 To initialize CyanogenMod 13.0 Repo:
 
-    repo init -u git://github.com/CyanogenMod/android.git -b cm-13.0 -g all,-notdefault,-darwin
+    repo init -u https://github.com/CyanogenMod/android.git -b cm-13.0 -g all,-notdefault,-darwin
 
 ---
 
