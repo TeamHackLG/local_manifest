@@ -235,10 +235,16 @@ liblzma* w3m android-tools-adb maven ncftp figlet
 		_if_fail_break "repo sync -c --force-sync -q"
 	fi
 
+	# Force usage of (FULL WORKING) Java8
+	export EXPERIMENTAL_USE_JAVA8=true
+
 	# Initialize environment
 	echo "  |"
 	echo "  | Initializing the environment"
 	_if_fail_break "source build/envsetup.sh"
+
+	# Use sensible default locations for Java
+	repopick 164134
 
 	# Another device choice
 	echo "  |"
