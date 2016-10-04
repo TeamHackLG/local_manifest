@@ -243,9 +243,6 @@ liblzma* w3m android-tools-adb maven ncftp figlet
 	echo "  | Initializing the environment"
 	_if_fail_break "source build/envsetup.sh"
 
-	# Use sensible default locations for Java
-	repopick 164134
-
 	# Another device choice
 	echo "  |"
 	echo "  | For what device you want to build:"
