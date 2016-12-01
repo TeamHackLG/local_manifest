@@ -1,4 +1,4 @@
-Manifest for Android MarshMallow / CyanogenMod 13.0
+Manifest for Android Nougat / CyanogenMod 14.1
 ====================================
 Project M4|L5 / Project U0|L7 / Project V1|L1II / Project Vee3|L3II
 
@@ -8,7 +8,7 @@ Automatic Way:
 
 script to download manifests, sync repo and build:
 
-    curl --create-dirs -L -o build.sh -O -L https://raw.github.com/TeamHackLG/local_manifest/cm-13.0/build.sh
+    curl --create-dirs -L -o build.sh -O -L https://raw.github.com/TeamHackLG/local_manifest/cm-14.1/build.sh
 
 To use:
 
@@ -18,15 +18,15 @@ To use:
 
 Manual Way:
 
-To initialize CyanogenMod 13.0 Repo:
+To initialize CyanogenMod 14.1 Repo:
 
-    repo init -u https://github.com/CyanogenMod/android.git -b cm-13.0 -g all,-notdefault,-darwin
+    repo init -u https://github.com/CyanogenMod/android.git -b cm-14.1 -g all,-notdefault,-darwin
 
 ---
 
 To initialize Manifest for all devices:
 
-    curl --create-dirs -L -o .repo/local_manifests/local_manifest.xml -O -L https://raw.github.com/TeamHackLG/local_manifest/cm-13.0/local_manifest.xml
+    curl --create-dirs -L -o .repo/local_manifests/local_manifest.xml -O -L https://raw.github.com/TeamHackLG/local_manifest/cm-14.1/local_manifest.xml
 
 ---
 

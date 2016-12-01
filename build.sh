@@ -1,9 +1,9 @@
 #!/bin/bash
 # Generic Variables
-_android="6.0.1"
-_android_version="MarshMallow"
-_custom_android="cm-13.0"
-_custom_android_version="CyanogenMod13.0"
+_android="7.0.0"
+_android_version="Nougat"
+_custom_android="cm-14.1"
+_custom_android_version="CyanogenMod14.1"
 _github_custom_android_place="CyanogenMod"
 _github_device_place="TeamHackLG"
 # Make loop for usage of 'break' to recursive exit
@@ -200,9 +200,6 @@ liblzma* w3m android-tools-adb maven ncftp figlet
 	else
 		_if_fail_break "repo sync -c --force-sync -q"
 	fi
-
-	# Force usage of (FULL WORKING) Java8
-	export EXPERIMENTAL_USE_JAVA8=true
 
 	# Initialize environment
 	echo "  |"
