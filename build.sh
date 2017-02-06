@@ -2,6 +2,7 @@
 # Generic Variables
 _android="7.1.1"
 _android_version="Nougat"
+_android_java="8"
 _custom_android="cm-14.1"
 _custom_android_version="LineageOS14.1"
 _github_custom_android_place="LineageOS"
@@ -36,7 +37,7 @@ do
 	_java_select() {
 		echo "  |"
 		echo "  | Opening Java Selection Screen!"
-		echo "  | Select 'open-jdk-8' in both screens"
+		echo "  | Select 'open-jdk-${_android_java}' in both screens"
 		echo "  | to continue using this script"
 		sudo update-alternatives --config java
 		sudo update-alternatives --config javac
@@ -45,11 +46,11 @@ do
 	_check_java() {
 		_java=$(java -version 2>&1 | head -1)
 		_javac=$(javac -version 2>&1 | head -1)
-		if [ "$(echo ${_java} | grep -o '1.8')" != "1.8" ]
-			[ "$(echo ${_javac} | grep -o '1.8')" != "1.8" ]
+		if [ "$(echo ${_java} | grep -o 1.${_android_java})" != "1.${_android_java}" ]
+			[ "$(echo ${_javac} | grep -o 1.${_android_java})" != "1.${_android_java}" ]
 		then
 			echo "  |"
-			echo "  | OpenJDK 8 not is default Java!"
+			echo "  | OpenJDK ${_android_java} not is default Java!"
 			echo "  | Default Java is ('${_java}')!"
 			echo "  | And default JavaC is ('${_javac}')!"
 			${1}
@@ -57,7 +58,7 @@ do
 	}
 
 	# Unset devices variables for not have any problem
-	unset _device _device_build _device_echo
+	unset _device _device_build _device_echo _option_exit
 
 	# Check if 'curl' is installed
 	if [ ! "$(which curl)" ]
@@ -161,11 +162,11 @@ do
 	sudo apt-get -y install git-core python gnupg flex bison gperf \
 		libsdl1.2-dev libesd0-dev libwxgtk2.8-dev squashfs-tools \
 		build-essential zip curl libncurses5-dev zlib1g-dev \
-		openjdk-8-jre openjdk-8-jdk pngcrush schedtool libxml2 \
-		libxml2-utils xsltproc lzop libc6-dev schedtool \
-		g++-multilib lib32z1-dev lib32ncurses5-dev gcc-multilib \
-		liblz4-* pngquant ncurses-dev texinfo gcc gperf patch libtool \
-		automake g++ gawk subversion expat libexpat1-dev \
+		openjdk-${_android_java}-jre openjdk-${_android_java}-jdk \
+		pngcrush schedtool libxml2 libxml2-utils xsltproc lzop \
+		libc6-dev schedtool g++-multilib lib32z1-dev lib32ncurses5-dev \
+		gcc-multilib liblz4-* pngquant ncurses-dev texinfo gcc gperf \
+		patch libtool automake g++ gawk subversion expat libexpat1-dev \
 		python-all-dev binutils-static bc libcloog-isl-dev libcap-dev \
 		autoconf libgmp-dev build-essential gcc-multilib g++-multilib \
 		pkg-config libmpc-dev libmpfr-dev lzma* liblzma* w3m \
@@ -201,7 +202,7 @@ do
 	# Use optimized reposync
 	echo "  |"
 	echo "  | Starting Sync:"
-	_if_fail_break "repo sync -c --force-sync -q -f"
+	_if_fail_break "repo sync -c -f --force-sync -q"
 
 	# Initialize environment
 	echo "  |"
@@ -238,7 +239,7 @@ do
 	then
 		_unset_and_stop
 	fi
-	echo "${x} | Building to ${_device_echo}"
+	echo "  | Building to ${_device_echo}"
 
 	# Builing Android
 	echo "  |"
