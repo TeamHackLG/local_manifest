@@ -42,6 +42,12 @@ Initialize the environment:
 
 ---
 
+If Jack run out of memory <http://wiki.lineageos.org/mako_build.html#configure-jack>:
+
+    export ANDROID_JACK_VM_ARGS="-Dfile.encoding=UTF-8 -XX:+TieredCompilation -Xmx4G"
+
+---
+
 To build for L5:
 
     brunch e610
