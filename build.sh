@@ -3,8 +3,8 @@
 _android="7.1.1"
 _android_version="Nougat"
 _custom_android="cm-14.1"
-_custom_android_version="CyanogenMod14.1"
-_github_custom_android_place="CyanogenMod"
+_custom_android_version="LineageOS14.1"
+_github_custom_android_place="LineageOS"
 _github_device_place="TeamHackLG"
 # Make loop for usage of 'break' to recursive exit
 while true

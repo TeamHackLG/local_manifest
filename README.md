@@ -1,4 +1,4 @@
-Manifest for Android Nougat / CyanogenMod 14.1
+Manifest for Android Nougat / LineageOS 14.1
 ====================================
 Project M4|L5 / Project U0|L7 / Project V1|L1II / Project Vee3|L3II
 
@@ -18,9 +18,9 @@ To use:
 
 Manual Way:
 
-To initialize CyanogenMod 14.1 Repo:
+To initialize LineageOS 14.1 Repo:
 
-    repo init -u https://github.com/CyanogenMod/android.git -b cm-14.1 -g all,-notdefault,-darwin
+    repo init -u https://github.com/LineageOS/android.git -b cm-14.1 -g all,-notdefault,-darwin
 
 ---
 
