@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+	<!-- Project Vee3 -->
+	<project path="device/lge/vee3" name="TeamHackLG/android_device_lge_vee3" revision="cm-11.0" remote="github" />
+	<!-- Project V1 -->
+	<project path="device/lge/v1" name="TeamHackLG/android_device_lge_v1" revision="cm-11.0" remote="github" />
+</manifest>

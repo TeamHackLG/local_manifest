@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+	<!-- Project M4 -->
+	<project path="device/lge/e610" name="TeamHackLG/android_device_lge_e610" revision="cm-11.0" remote="github" />
+	<!-- Project U0 -->
+	<project path="device/lge/p700" name="TeamHackLG/android_device_lge_p700" revision="cm-11.0" remote="github" />
+</manifest>
